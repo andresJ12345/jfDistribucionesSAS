@@ -1,2 +1,0 @@
-# jfDistribucionesSAS
-proyecto de ferreteria 

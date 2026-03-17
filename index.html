@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jf Distribuciones SAS</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Header y Navegación -->
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">
+
+                    <i> <img src="./Img/Logo/logoPeq.jpeg" alt="" width="40px" height="40px"> </i>
+                    <span>Jf Distribuciones SAS</span>
+                </div>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#inicio" class="nav-link active">Inicio</a></li>
+                    <li><a href="#nosotros" class="nav-link">Nosotros</a></li>
+                    <li><a href="#catalogo" class="nav-link">Catálogo</a></li>
+                    <li><a href="#contacto" class="nav-link">Contáctenos</a></li>
+                </ul>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Sección Inicio -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>Bienvenidos a Jf Distribuciones SAS</h1>
+            <p>Seguridad y confianza para sus instalaciónes.</p>
+            <a href="#catalogo" class="btn-hero">Ver Catálogo</a>
+        </div>
+    </section>
+
+    <!-- Sección Nosotros -->
+    <section id="nosotros" class="nosotros">
+        <div class="container">
+            <h2 class="section-title">Nosotros</h2>
+            <div class="carousel-container">
+                <div class="carousel">
+                    <div class="carousel-slide active">
+                        <div class="slide-content">
+                            <i class="fas fa-eye"></i>
+                            <h3>Nuestra Visión</h3>
+                            <p>JF DISTRIBUCIONES lograremos
+                                posicionarnos en el mercado como empresa líder
+                                implementando procesos de calidad innovadores que brinden
+                                a nuestros clientes tranquilidad y seguridad a la vez que
+                                contribuimos con el desarrollo y crecimiento de la región</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <div class="slide-content">
+                            <i class="fas fa-bullseye"></i>
+                            <h3>Nuestra Misión</h3>
+                            <p>somos una empresa que brinda soluciones eficientes mediante
+                                el suministro de productos hidráulicos; y seguridad para sus
+                                colaboradores de la construcción.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <div class="slide-content">
+                            <i class="fas fa-gem"></i>
+                            <h3>¿Quiénes somos?</h3>
+                            <p>JF Distribuciones SAS es una empresa colombiana dedicada a la
+                                distribución mayorista de productos de consumo industrial,
+                                abasteciendo a diversos puntos de venta y comercios en todo el
+                                país. Ofrecemos una amplia variedad de productos, trabajando
+                                con marcas reconocidas a nivel nacional e internacional. Nuestro
+                                objetivo es brindar un servicio de calidad y satisfacer las
+                                necesidades de los clientes de manera eficiente y oportuna.</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-btn prev" id="prevBtn">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="carousel-btn next" id="nextBtn">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                <div class="carousel-indicators">
+                    <span class="indicator active" data-slide="0"></span>
+                    <span class="indicator" data-slide="1"></span>
+                    <span class="indicator" data-slide="2"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Catálogo -->
+    <section id="catalogo" class="catalogo">
+        <div class="container">
+            <h2 class="section-title">Nuestro Catálogo</h2>
+            <div class="cards-grid">
+                <!-- Card 1 -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="./Img/Catalogo/Gas.png" alt="Gas">
+                            <h3>GAS</h3>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>GAS</h3>
+                            <p>Material para instalaciones de gas GN Y GLP, pe al pe, galvanizado, acero al carbón,
+                                polietileno, regulación y medición.</p>
+                            <button class="btn-download">
+                                <i class="fas fa-download"></i> Descargar Catálogo
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="./Img/Catalogo/SeguridadIndustrial.png" alt="Seguridad Industrial">
+                            <h3>SEGURIDAD INDUSTRIAL</h3>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>SEGURIDAD INDUSTRIAL</h3>
+                            <p>Equipos, herramientas y elementos de protección personal y seguridad industrial para el
+                                sector energético, telecomunicaciones y la construcción.</p>
+                            <button class="btn-download">
+                                <i class="fas fa-download"></i> Descargar Catálogo
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="./Img/Catalogo/RedContraIncendios.png" alt="Red contra Incendios">
+                            <h3>RED CONTRA INCENDIOS</h3>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>RED CONTRA INCENDIOS</h3>
+                            <p>Tuberías, accesorios en c900 y acero al carbón para sistemas de red contra incendios en
+                                infraestructura y edificaciones</p>
+                            <button class="btn-download">
+                                <i class="fas fa-download"></i> Descargar Catálogo
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="./Img/Catalogo/AcueductoYAlcantarillado.png" alt="Acueducto y Alcantarillado">
+                            <h3>ACUEDUCTO Y ALCANTARILLADO</h3>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>ACUEDUCTO Y ALCANTARILLADO</h3>
+                            <p>Tuberías, accesorios y válvulas en PVC, PEAD, bronce, hierro dúctil, acero al carbón.
+                                Válvulas reguladoras de presión micro y macro-medidor de agua</p>
+                            <button class="btn-download">
+                                <i class="fas fa-download"></i> Descargar Catálogo
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Contacto -->
+    <section id="contacto" class="contacto">
+        <div class="container">
+            <h2 class="section-title">Contáctenos</h2>
+            <div class="contacto-content">
+                <!-- Formulario -->
+                <div class="formulario-container">
+                    <h3>Envíanos un mensaje</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="nombre">
+                                <i class="fas fa-user"></i> Nombre Completo
+                            </label>
+                            <input type="text" id="nombre" name="nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="telefono">
+                                <i class="fas fa-phone"></i> Teléfono
+                            </label>
+                            <input type="tel" id="telefono" name="telefono" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="correo">
+                                <i class="fas fa-envelope"></i> Correo Electrónico
+                            </label>
+                            <input type="email" id="correo" name="correo" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="ciudad">
+                                <i class="fas fa-map-marker-alt"></i> Ciudad
+                            </label>
+                            <input type="text" id="ciudad" name="ciudad" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="descripcion">
+                                <i class="fas fa-comment"></i> Descripción de su interés
+                            </label>
+                            <textarea id="descripcion" name="descripcion" rows="5" required></textarea>
+                        </div>
+                        <!-- <a  href="https://wa.me/5731627901191?text=Hola%2C%20quiero%20cotizar%20un%20servicio"  target="_blank" class="btn-submit">
+                            <i class="fas fa-paper-plane"></i> Enviar Mensaje
+                        </a> -->
+                        <button  class="btn-submit">
+                            <i class="fas fa-paper-plane"></i> Enviar Mensaje
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Mapa -->
+                <div class="mapa-container">
+                    <h3>Nuestra Ubicación</h3>
+                    <div class="mapa">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3977.8894112666917!2d-75.23653977386577!3d4.431693326198013!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e38c50014b5ba2d%3A0xa1af65d42b6f9425!2sJf%20Distribuciones%20SAS!5e0!3m2!1ses!2sco!4v1767909337426!5m2!1ses!2sco"
+                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+                    </div>
+                    <div class="info-contacto">
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <p>Cra. 1e Sur #25-24, Ibagué, Tolima</p>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-phone"></i>
+                            <p>+57 313 4213381</p>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-envelope"></i>
+                            <p>info@ferreteriaindustrial.com</p>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-clock"></i>
+                            <p>Lunes a Sábado: 8:00 AM - 6:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Ferretería Industrial</h4>
+                    <p>Tu aliado en herramientas y materiales.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Síguenos</h4>
+                    <div class="social-links">
+                        <a
+                            href="https://www.facebook.com/JfDitribucionessas?paipv=0&eav=AfbR74uinFDjaFpQWgfteNf2u0hPI9JQPOXSwuHBWT892TLC2mxvn-pHjI2SWYjT5RU"><i
+                                class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/jfdistribucionessas/"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/573134213381?text=Hola%20quiero%20mas%20informacion"><i
+                                class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Jf Distribuciones SAS. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
