@@ -95,11 +95,42 @@ header {
 
 /* Hero Section */
 .hero {
-  background: linear-gradient(135deg, var(--negro) 0%, #2a2a2a 100%);
+  background: url("Img/Logo/bannerjfmod.png") no-repeat center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: #fff;
+  aspect-ratio: 16/5;
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
   color: var(--blanco);
-  padding: 150px 20px 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   margin-top: 70px;
+  padding: 0;
+  position: relative;
+}
+
+/* Fondo negro opaco sobre la imagen de fondo de .hero */
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.65); /* Negro opaco, ajusta la opacidad si lo deseas */
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Asegura que el contenido esté por encima del fondo negro */
+.hero > * {
+  position: relative;
+  z-index: 2;
 }
 
 .hero-content h1 {
@@ -107,6 +138,9 @@ header {
   margin-bottom: 1rem;
   color: var(--amarillo);
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 .hero-content p {
@@ -133,8 +167,23 @@ header {
 
 /* Sección Nosotros */
 .nosotros {
-  padding: 80px 20px;
-  background-color: var(--gris-claro);
+  padding: 100px 20px;
+  background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 50%, #f0f0f0 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.nosotros-wave {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: linear-gradient(to bottom, 
+    rgba(232, 128, 16, 0.05) 0%, 
+    rgba(232, 128, 16, 0.02) 50%, 
+    transparent 100%);
+  pointer-events: none;
 }
 
 .section-title {
@@ -144,6 +193,7 @@ header {
   color: var(--negro);
   position: relative;
   padding-bottom: 15px;
+  z-index: 2;
 }
 
 .section-title::after {
@@ -154,121 +204,291 @@ header {
   transform: translateX(-50%);
   width: 100px;
   height: 4px;
-  background-color: var(--amarillo);
+  background: linear-gradient(90deg, #3498db 0%, var(--amarillo) 100%);
 }
 
-/* Carrusel */
-.carousel-container {
-  position: relative;
-  max-width: 900px;
+.nosotros-title {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+/* Cards Container */
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5rem;
+  max-width: 1200px;
   margin: 0 auto;
-  background-color: var(--blanco);
+  position: relative;
+  z-index: 1;
+}
+
+/* About Cards */
+.about-card {
+  background: var(--blanco);
   border-radius: 15px;
-  box-shadow: 0 10px 30px var(--sombra);
+  padding: 40px 30px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  border-top: 5px solid var(--amarillo);
+  position: relative;
   overflow: hidden;
 }
 
-.carousel {
-  position: relative;
-  height: 400px;
-}
-
-.carousel-slide {
+.about-card::before {
+  content: "";
   position: absolute;
-  width: 100%;
-  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(232, 128, 16, 0.05) 0%, transparent 100%);
   opacity: 0;
-  transition: opacity 0.6s ease-in-out;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
 }
 
-.carousel-slide.active {
+.about-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.about-card:hover::before {
   opacity: 1;
 }
 
-.slide-content {
-  text-align: center;
-  padding: 40px;
+.about-card:nth-child(2) {
+  border-top-color: #3498db;
 }
 
-.slide-content i {
-  font-size: 4rem;
-  color: var(--amarillo);
-  margin-bottom: 1rem;
+.about-card:nth-child(2) .card-icon {
+  background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
 }
 
-.slide-content h3 {
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-  color: var(--negro);
-}
-
-.slide-content p {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  color: #555;
-}
-
-.carousel-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: var(--amarillo);
-  color: var(--negro);
-  border: none;
-  width: 50px;
-  height: 50px;
+.card-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 25px;
+  background: linear-gradient(135deg, var(--amarillo) 0%, #d97706 100%);
   border-radius: 50%;
-  cursor: pointer;
-  font-size: 1.5rem;
-  transition: all 0.3s;
-  z-index: 10;
-}
-
-.carousel-btn:hover {
-  background-color: var(--negro);
-  color: var(--amarillo);
-  transform: translateY(-50%) scale(1.1);
-}
-
-.carousel-btn.prev {
-  left: 20px;
-}
-
-.carousel-btn.next {
-  right: 20px;
-}
-
-.carousel-indicators {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
   display: flex;
-  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  color: var(--blanco);
+  box-shadow: 0 8px 20px rgba(232, 128, 16, 0.3);
+  transition: all 0.35s ease;
 }
 
-.indicator {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background-color: #ddd;
-  cursor: pointer;
-  transition: all 0.3s;
+.about-card:hover .card-icon {
+  transform: scale(1.1) rotate(5deg);
 }
 
-.indicator.active {
-  background-color: var(--amarillo);
-  width: 30px;
-  border-radius: 6px;
+.about-card h3 {
+  font-size: 1.5rem;
+  color: var(--negro);
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.about-card p {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: #666;
 }
 
 /* Sección Catálogo */
 .catalogo {
-  padding: 80px 20px;
-  background-color: var(--blanco);
+  padding: 100px 20px;
+  background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.catalogo::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 20% 50%, rgba(232, 128, 16, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(52, 152, 219, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 40% 20%, rgba(232, 128, 16, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+  animation: bgFloat 15s ease-in-out infinite;
+  z-index: 0;
+}
+
+.catalogo::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  bottom: 0;
+  width: 100%;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(255, 255, 255, 0.3) 50%, 
+    transparent 100%);
+  animation: shimmer 3s infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.catalogo-wave {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: linear-gradient(to bottom, 
+    rgba(52, 152, 219, 0.05) 0%, 
+    rgba(232, 128, 16, 0.03) 50%, 
+    transparent 100%);
+  pointer-events: none;
+  animation: waveAnimation 6s ease-in-out infinite;
+}
+
+@keyframes waveAnimation {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.catalogo-title {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+  position: relative;
+  z-index: 1;
+}
+
+/* Formas decorativas flotantes */
+.catalogo::before {
+  z-index: 0;
+}
+
+.catalogo-wave {
+  z-index: 0;
+}
+
+.cards-grid {
+  position: relative;
+  z-index: 2;
+}
+
+/* Decorativos flotantes */
+.catalogo .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Animación de burbujas */
+@keyframes floatBubble1 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.3;
+  }
+  25% {
+    transform: translate(30px, -30px) scale(1.1);
+  }
+  50% {
+    transform: translate(20px, -60px) scale(0.9);
+    opacity: 0.5;
+  }
+  75% {
+    transform: translate(-20px, -40px) scale(1.05);
+  }
+}
+
+@keyframes floatBubble2 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.25;
+  }
+  25% {
+    transform: translate(-40px, 20px) scale(0.95);
+  }
+  50% {
+    transform: translate(-60px, 10px) scale(1.1);
+    opacity: 0.4;
+  }
+  75% {
+    transform: translate(-30px, -20px) scale(0.9);
+  }
+}
+
+@keyframes floatBubble3 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.2;
+  }
+  25% {
+    transform: translate(-30px, -40px) scale(1.05);
+  }
+  50% {
+    transform: translate(-10px, -80px) scale(0.95);
+    opacity: 0.3;
+  }
+  75% {
+    transform: translate(40px, -50px) scale(1.1);
+  }
+}
+
+/* Inyectando decorativos con pseudo-elementos adicionales */
+.section-title::before {
+  content: "";
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(232, 128, 16, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  top: -100px;
+  right: 10%;
+  animation: floatBubble1 8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.catalogo-title::after {
+  content: "";
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(52, 152, 219, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  bottom: -150px;
+  left: 15%;
+  animation: floatBubble2 10s ease-in-out infinite;
+  pointer-events: none;
+  z-index: -1;
 }
 
 .cards-grid {
@@ -277,6 +497,21 @@ header {
   gap: 2rem;
   max-width: 1200px;
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.cards-grid::before {
+  content: "";
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle, rgba(232, 128, 16, 0.12) 0%, transparent 70%);
+  border-radius: 50%;
+  top: -80px;
+  left: 5%;
+  animation: floatBubble3 12s ease-in-out infinite;
+  pointer-events: none;
 }
 
 /* Flip Cards */
@@ -293,7 +528,7 @@ header {
   width: 100%;
   height: 100%;
   text-align: center;
-  transition: transform 0.8s;
+  transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   transform-style: preserve-3d;
 }
 
@@ -309,14 +544,20 @@ header {
   height: 100%;
   backface-visibility: hidden;
   border-radius: 15px;
-  box-shadow: 0 10px 30px var(--sombra);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   overflow: hidden;
+  border: 1px solid rgba(232, 128, 16, 0.1);
 }
 
 .flip-card-front {
   background-color: var(--blanco);
   display: flex;
   flex-direction: column;
+  transition: all 0.35s ease;
+}
+
+.flip-card:hover .flip-card-front {
+  box-shadow: 0 15px 40px rgba(232, 128, 16, 0.2);
 }
 
 .flip-card-front img {
@@ -327,13 +568,16 @@ header {
 
 .flip-card-front h3 {
   padding: 20px;
-  background-color: var(--amarillo);
-  color: var(--negro);
-  font-size: 1.3rem;
+  background: linear-gradient(135deg, var(--amarillo) 0%, #d97706 100%);
+  color: var(--blanco);
+  font-size: 1.2rem;
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .flip-card-back {
@@ -345,34 +589,51 @@ header {
   justify-content: center;
   padding: 30px;
   gap: 20px;
+  position: relative;
+}
+
+.flip-card-back::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--amarillo) 0%, #3498db 100%);
 }
 
 .flip-card-back h3 {
   color: var(--amarillo);
-  font-size: 1.5rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-transform: uppercase;
 }
 
 .flip-card-back p {
-  font-size: 1rem;
+  font-size: 0.95rem;
   line-height: 1.6;
+  color: #ddd;
 }
 
 .btn-download {
-  background-color: var(--amarillo);
+  background: linear-gradient(135deg, var(--amarillo) 0%, #d97706 100%);
   color: var(--negro);
   border: none;
   padding: 12px 30px;
   border-radius: 25px;
   font-weight: bold;
   cursor: pointer;
-  transition: all 0.3s;
-  font-size: 1rem;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 5px 15px rgba(232, 128, 16, 0.3);
 }
 
 .btn-download:hover {
-  background-color: var(--blanco);
-  transform: scale(1.05);
-  box-shadow: 0 5px 15px rgba(255, 215, 0, 0.5);
+  background: linear-gradient(135deg, #d97706 0%, var(--amarillo) 100%);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(232, 128, 16, 0.5);
 }
 
 /* Sección Contacto */
